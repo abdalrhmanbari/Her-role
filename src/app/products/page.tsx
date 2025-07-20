@@ -2,6 +2,13 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../../components/ProductCard";
 
+type Product = {
+  image: string;
+  title: string;
+  price: string;
+  category: string;
+};
+
 const categories = [
   "الكل",
   "الملابس",
@@ -12,7 +19,7 @@ const categories = [
   "الأدوات الرياضية",
 ];
 
-const staticProducts = [
+const staticProducts: Product[] = [
   {
     image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80",
     title: "كرسي مكتب",
@@ -73,25 +80,23 @@ async function getProducts() {
 }
 
 export default function ProductsPage() {
-  const [products, setProducts] = useState<any[]>([]);
-  const [filtered, setFiltered] = useState<any[]>([]);
-  const [selected, setSelected] = useState("الكل");
+  const [products, setProducts] = useState<Product[]>([]);
+  const [filtered, setFiltered] = useState<Product[]>([]);
+  const [selected, setSelected] = useState<string>("الكل");
 
   useEffect(() => {
     getProducts().then((data) => {
       // توحيد الحقول للمنتجات من القاعدة
-      const normalizedData = data.map((item: any) => ({
+      const normalizedData: Product[] = data.map((item: any) => ({
         image: item.image,
         title: item.title || item.name,
         price: item.price,
         category: item.category,
       }));
-      const allProducts = [...staticProducts, ...normalizedData];
+      const allProducts: Product[] = [...staticProducts, ...normalizedData];
       setProducts(allProducts);
       setFiltered(allProducts);
     });
-
-    
   }, []);
 
   useEffect(() => {

@@ -41,7 +41,7 @@ export default function LoginPage() {
             id="name"
             name="name"
             type="text"
-            className="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-500"
             placeholder="اسمك الكامل"
           />
         </div>
@@ -52,7 +52,7 @@ export default function LoginPage() {
             name="email"
             type="email"
             required
-            className="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-500"  
             placeholder="example@email.com"
           />
         </div>
@@ -63,7 +63,7 @@ export default function LoginPage() {
             name="password"
             type="password"
             required
-            className="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-500"
             placeholder="••••••••"
           />
         </div>
