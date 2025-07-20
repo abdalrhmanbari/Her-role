@@ -87,11 +87,11 @@ export default function ProductsPage() {
   useEffect(() => {
     getProducts().then((data) => {
       // توحيد الحقول للمنتجات من القاعدة
-      const normalizedData: Product[] = data.map((item: any) => ({
-        image: item.image,
-        title: item.title || item.name,
-        price: item.price,
-        category: item.category,
+      const normalizedData: Product[] = data.map((item: Record<string, unknown>) => ({
+        image: item.image as string,
+        title: (item.title || item.name) as string,
+        price: item.price as string,
+        category: item.category as string,
       }));
       const allProducts: Product[] = [...staticProducts, ...normalizedData];
       setProducts(allProducts);
