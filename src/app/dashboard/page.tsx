@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 const categories = [
   "الملابس",
@@ -122,7 +123,7 @@ export default function DashboardPage() {
           />
           {uploading && <span className="text-blue-500">جاري رفع الصورة...</span>}
           {imageUrl && (
-            <img src={imageUrl} alt="صورة المنتج" className="w-24 h-24 object-contain mt-2 mx-auto text-gray-500" />
+            <Image src={imageUrl} alt="صورة المنتج" width={96} height={96} className="w-24 h-24 object-contain mt-2 mx-auto rounded" />
           )}
         </div>
         <button

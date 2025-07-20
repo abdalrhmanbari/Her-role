@@ -2,7 +2,6 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { IncomingForm } from "formidable";
 import fs from "fs";
 import path from "path";
-import type { File } from "formidable";
 
 export const config = {
   api: {
