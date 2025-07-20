@@ -11,13 +11,13 @@ if (!process.env.MONGODB_URI) {
 }
 
 if (process.env.NODE_ENV === "development") {
-  // @ts-expect-error
+  // @ts-expect-error: global type for mongo client
   if (!global._mongoClientPromise) {
     client = new MongoClient(uri, options);
-    // @ts-expect-error
+    // @ts-expect-error: global type for mongo client
     global._mongoClientPromise = client.connect();
   }
-  // @ts-expect-error
+  // @ts-expect-error: global type for mongo client
   clientPromise = global._mongoClientPromise;
 } else {
   client = new MongoClient(uri, options);
